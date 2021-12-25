@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "avorion.fullname" . }}
+  labels:
+    app: {{ template "avorion.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  type: {{ .Values.avorionServer.serviceType }}
+  ports:
+  {{- if eq "LoadBalancer" .Values.avorionServer.serviceType }}
+  - name: avorion-1
+    port: {{ .Values.avorionServer.serverPort | int }}
+    targetPort: avorion-1
+    protocol: UDP
+  - name: avorion-2
+    port: {{ .Values.avorionServer.serverPort | int | add 1 }}
+    targetPort: avorion-2
+    protocol: UDP
+  - name: valheim-3
+    port: {{ .Values.avorionServer.serverPort | int | add 2 }}
+    targetPort: avorion-3
+    protocol: UDP
+  {{- else }}
+  - name: avorion-1
+    port: {{ .Values.avorionServer.serverPort | int }}
+    targetPort: avorion-1
+    nodePort: {{ .Values.avorionServer.serverPort | int }}
+    protocol: UDP
+  - name: avorion-2
+    port: {{ .Values.avorionServer.serverPort | int | add 1 }}
+    targetPort: avorion-2
+    nodePort: {{ .Values.avorionServer.serverPort | int | add 1 }}
+    protocol: UDP
+  - name: avorion-3
+    port: {{ .Values.avorionServer.serverPort | int | add 2 }}
+    targetPort: avorion-3
+    nodePort: {{ .Values.avorionServer.serverPort | int | add 2 }}
+    protocol: UDP
+  {{- end }}
+  selector:
+    app: {{ template "avorion.fullname" . }}
