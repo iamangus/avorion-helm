@@ -14,7 +14,7 @@ resources:
 
 avorionServer:
   serverName: Avorion Kubernetes Server
-  serverPort: 2456
+  serverPort: 27000
   worldName: Avorion World
   serverPass: Avorion-server
   serviceType: LoadBalancer
