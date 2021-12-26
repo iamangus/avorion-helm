@@ -12,15 +12,15 @@ spec:
   ports:
   {{- if eq "LoadBalancer" .Values.avorionServer.serviceType }}
   - name: avorion-1
-    port: {{ .Values.avorionServer.serverPort | int }}
+    port: 27000
     targetPort: avorion-1
-    protocol: UDP
+    protocol: TCP
   - name: avorion-2
-    port: {{ .Values.avorionServer.serverPort | int | add 1 }}
+    port: 27000
     targetPort: avorion-2
     protocol: UDP
   - name: avorion-3
-    port: {{ .Values.avorionServer.serverPort | int | add 2 }}
+    port: 27003
     targetPort: avorion-3
     protocol: UDP
   - name: avorion-4
