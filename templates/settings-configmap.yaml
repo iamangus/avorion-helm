@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "valheim.fullname" . }}-configmap
+data:
+  server.ini: |
+    a=b
