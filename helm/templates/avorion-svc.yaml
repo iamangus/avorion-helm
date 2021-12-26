@@ -15,6 +15,14 @@ spec:
     port: {{ .Values.avorionServer.serverPort | int }}
     targetPort: avorion-1
     protocol: UDP
+  - name: avorion-2
+    port: {{ .Values.avorionServer.serverPort | int | add 1 }}
+    targetPort: avorion-2
+    protocol: UDP
+  - name: avorion-3
+    port: {{ .Values.avorionServer.serverPort | int | add 2 }}
+    targetPort: avorion-3
+    protocol: UDP
   {{- else }}
   - name: avorion-1
     port: {{ .Values.avorionServer.serverPort | int }}
