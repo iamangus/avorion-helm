@@ -1,6 +1,6 @@
 apiVersion: v2
 name: avorion
-version: 0.99
+version: "0.99"
 appVersion: 2.0.11.34546
 description: Avorion dedicated server
 keywords:
