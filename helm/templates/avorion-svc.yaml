@@ -15,10 +15,10 @@ spec:
     port: 27000
     targetPort: avorion-1
     protocol: TCP
-  - name: avorion-2
-    port: 27000
-    targetPort: avorion-2
-    protocol: UDP
+  #- name: avorion-2
+  #  port: 27000
+  #  targetPort: avorion-2
+  #  protocol: UDP
   - name: avorion-3
     port: 27003
     targetPort: avorion-3
