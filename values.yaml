@@ -19,6 +19,8 @@ avorionServer:
   serverPass: Avorion-server
   serviceType: LoadBalancer
 
+settingsINI: {}
+
 persistence:
   config:
     enabled: true
