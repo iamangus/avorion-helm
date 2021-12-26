@@ -4,4 +4,6 @@ metadata:
   name: {{ template "valheim.fullname" . }}-configmap
 data:
   server.ini: |
-    a=b
+  {{- range $key, $value := .Values.settingsINI }}
+    {{ $key }}={{ $value }}
+  {{- end }}
