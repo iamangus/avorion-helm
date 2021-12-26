@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "valheim.fullname" . }}-configmap
+  name: {{ template "avorion.fullname" . }}-configmap
 data:
   server.ini: |
   {{- range $key, $value := .Values.settingsINI }}
