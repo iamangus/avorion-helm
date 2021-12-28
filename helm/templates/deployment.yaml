@@ -27,14 +27,14 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
 
         ports:
-        - name: avorion-1
-          containerPort: {{ .Values.avorionServer.serverPort | int }}
+        - name: avorion-tcp-1
+          containerPort: 27000
+          protocol: TCP
+        - name: avorion-udp-1
+          containerPort: 27000
           protocol: UDP
-        - name: avorion-2
-          containerPort: {{ .Values.avorionServer.serverPort | int | add 1 }}
-          protocol: UDP
-        - name: avorion-3
-          containerPort: {{ .Values.avorionServer.serverPort | int | add 2 }}
+        - name: avorion-udp-2
+          containerPort: 27003
           protocol: UDP
         volumeMounts:
         - name: config
