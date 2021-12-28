@@ -13,11 +13,11 @@ spec:
   type: {{ .Values.avorionServer.serviceType }}
   ports:
   {{- if eq "LoadBalancer" .Values.avorionServer.serviceType }}
-  - name: avorion-1
+  - name: avorion-udp-1
     port: 27000
     targetPort: avorion-udp-1
     protocol: UDP
-  - name: avorion-2
+  - name: avorion-udp-2
     port: 27003
     targetPort: avorion-udp-2
     protocol: UDP
