@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "avorion.tcp.fullname" . }}
+  labels:
+    app: {{ template "avorion.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+  annotations:
+    metallb.universe.tf/allow-shared-ip: {{ template "avorion.fullname" . }}
+spec:
+  type: {{ .Values.avorionServer.serviceType }}
+  ports:
+  {{- if eq "LoadBalancer" .Values.avorionServer.serviceType }}
+  - name: avorion-tcp-1
+    port: 27000
+    targetPort: avorion-tcp-1
+    protocol: TCP
+  {{- else }}
+  - name: avorion-1
+    port: {{ .Values.avorionServer.serverPort | int }}
+    targetPort: avorion-1
+    nodePort: {{ .Values.avorionServer.serverPort | int }}
+    protocol: UDP
+  {{- end }}
+  selector:
+    app: {{ template "avorion.fullname" . }}
