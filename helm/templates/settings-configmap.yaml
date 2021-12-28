@@ -4,6 +4,7 @@ metadata:
   name: {{ template "avorion.fullname" . }}-configmap
 data:
   server.ini: |
+    [Game]
   {{- range $key, $value := .Values.settingsINI }}
     {{ $key }}={{ $value }}
   {{- end }}
