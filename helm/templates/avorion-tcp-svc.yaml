@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "avorion.tcp.fullname" . }}
+  name: {{ template "avorion.fullname" . }}-tcp
   labels:
     app: {{ template "avorion.fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
