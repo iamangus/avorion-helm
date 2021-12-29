@@ -22,7 +22,7 @@ spec:
       initContainers:
       - name: volume-mount-hack
         image: busybox
-        command: ["sh", "-c", "cp /data/temp-server.ini /data/avorion_galaxy/ && chown -R 1000:1000 /data/avorion_galaxy/"]
+        command: ["sh", "-c", "cp /data/temp-server.ini /data/avorion_galaxy/ && chown -R 1000:1000 /data/avorion_galaxy/*"]
         volumeMounts:
         - name: server-ini
           mountPath: /data/temp-server.ini
