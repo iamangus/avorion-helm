@@ -7,12 +7,15 @@ data:
     [Game]
   {{- range $key, $value := .Values.settingsINI.Game }}
     {{ $key }}={{ $value }}
+  {{- end }}
     [System]
   {{- range $key, $value := .Values.settingsINI.System }}
     {{ $key }}={{ $value }}
+  {{- end }}
     [Networking]
   {{- range $key, $value := .Values.settingsINI.Networking }}
     {{ $key }}={{ $value }}
+  {{- end }}
     [Administration]
   {{- range $key, $value := .Values.settingsINI.Administration }}
     {{ $key }}={{ $value }}
