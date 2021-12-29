@@ -22,7 +22,7 @@ spec:
       initContainers:
       - name: volume-mount-hack
         image: busybox
-        command: ["sh", "-c", "chown -R steam:steam /data/demo"]
+        command: ["sh", "-c", "chown -R 1000:1000 /data/demo"]
         volumeMounts:
         - name: server-ini
           mountPath: /data/demo
