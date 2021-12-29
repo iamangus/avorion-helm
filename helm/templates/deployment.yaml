@@ -43,7 +43,7 @@ spec:
           mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/server.ini
           subPath: server.ini
       securityContext:
-        fsGroup: 1000
+        fsGroup: 100999
       volumes:
       - name: server-ini
         configMap:
