@@ -21,6 +21,14 @@ spec:
     port: 27003
     targetPort: avorion-udp-2
     protocol: UDP
+  - name: avorion-udp-3
+    port: 27020
+    targetPort: avorion-udp-3
+    protocol: UDP
+  - name: avorion-udp-4
+    port: 27021
+    targetPort: avorion-udp-4
+    protocol: UDP
   {{- else }}
   - name: avorion-1
     port: {{ .Values.avorionServer.serverPort | int }}
