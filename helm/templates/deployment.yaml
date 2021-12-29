@@ -22,10 +22,13 @@ spec:
       initContainers:
       - name: volume-mount-hack
         image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /data/demo"]
+        command: ["sh", "-c", "cp /data/temp-server.ini /data/avorion_galaxy/ && chown -R 1000:1000 /data/avorion_galaxy/"]
         volumeMounts:
         - name: server-ini
-          mountPath: /data/demo
+          mountPath: /data/temp-server.ini
+          subPath: temp-server.ini
+        - name: config
+          mountPath: /data/avorion_galaxy
       containers:
       - name: {{ template "avorion.fullname" . }}
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
@@ -46,9 +49,9 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /home/steam/.avorion/galaxies/avorion_galaxy
-        - name: server-ini
-          mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/temp-server.ini
-          subPath: temp-server.ini
+        #- name: server-ini
+        #  mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/temp-server.ini
+        #  subPath: temp-server.ini
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
