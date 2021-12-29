@@ -36,12 +36,12 @@ spec:
         - name: avorion-udp-2
           containerPort: 27003
           protocol: UDP
-        volumeMounts:
+        #volumeMounts:
         #- name: config
         #  mountPath: /home/steam/.avorion/galaxies/avorion_galaxy
-        - name: server-ini
-          mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/
-          subPath: magic/temp-server.ini
+        #- name: server-ini
+        #  mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/
+        #  subPath: magic/temp-server.ini
       volumes:
       - name: server-ini
         configMap:
