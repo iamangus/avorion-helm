@@ -39,9 +39,9 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /home/steam/.avorion/galaxies/avorion_galaxy
-        #- name: server-ini
-        #  mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/server.ini
-        #  subPath: server.ini
+        - name: server-ini
+          mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/temp-server.ini
+          subPath: temp-server.ini
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
