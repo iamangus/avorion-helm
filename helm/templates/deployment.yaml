@@ -46,6 +46,12 @@ spec:
         - name: avorion-udp-2
           containerPort: 27003
           protocol: UDP
+        - name: avorion-udp-3
+          containerPort: 27020
+          protocol: UDP
+        - name: avorion-udp-4
+          containerPort: 27021
+          protocol: UDP
         volumeMounts:
         - name: config
           mountPath: /home/steam/.avorion/galaxies/avorion_galaxy
