@@ -19,6 +19,13 @@ spec:
         app: {{ template "avorion.fullname" . }}
         release: "{{ .Release.Name }}"
     spec:
+      initContainers:
+      - name: volume-mount-hack
+        image: busybox
+        command: ["sh", "-c", "chown -R steam:steam /data/demo"]
+        volumeMounts:
+        - name: server-ini
+          mountPath: /data/demo
       containers:
       - name: {{ template "avorion.fullname" . }}
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
