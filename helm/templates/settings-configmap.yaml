@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "avorion.fullname" . }}-configmap
 data:
-  temp-server.ini: |
+  server.ini: |
     [Game]
   {{- range $key, $value := .Values.settingsINI }}
     {{ $key }}={{ $value }}
