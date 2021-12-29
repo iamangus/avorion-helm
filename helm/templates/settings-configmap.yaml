@@ -5,6 +5,15 @@ metadata:
 data:
   server.ini: |
     [Game]
-  {{- range $key, $value := .Values.settingsINI }}
+  {{- range $key, $value := .Values.settingsINI.Game }}
+    {{ $key }}={{ $value }}
+    [System]
+  {{- range $key, $value := .Values.settingsINI.System }}
+    {{ $key }}={{ $value }}
+    [Networking]
+  {{- range $key, $value := .Values.settingsINI.Networking }}
+    {{ $key }}={{ $value }}
+    [Administration]
+  {{- range $key, $value := .Values.settingsINI.Administration }}
     {{ $key }}={{ $value }}
   {{- end }}
