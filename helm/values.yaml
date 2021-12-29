@@ -19,7 +19,11 @@ avorionServer:
   serverPass: Avorion-server
   serviceType: LoadBalancer
 
-settingsINI: {}
+settingsINI:
+  Game: {}
+  System: {}
+  Networking: {}
+  Administration: {}
 
 persistence:
   config:
