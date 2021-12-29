@@ -40,8 +40,8 @@ spec:
         #- name: config
         #  mountPath: /home/steam/.avorion/galaxies/avorion_galaxy
         - name: server-ini
-          mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/temp-server.ini
-          subPath: temp-server.ini
+          mountPath: /home/steam/.avorion/galaxies/avorion_galaxy/server.ini
+          subPath: server.ini
       volumes:
       - name: server-ini
         configMap:
